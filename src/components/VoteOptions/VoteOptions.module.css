@@ -17,7 +17,8 @@
   min-width: 120px;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
   background-color: #004182;
   border-color: #003060;
 }
@@ -27,7 +28,8 @@
   border-color: #dc3545;
 }
 
-.reset:hover {
+.reset:hover,
+.reset:focus {
   background-color: #bb2d3b;
   border-color: #b02a37;
 }

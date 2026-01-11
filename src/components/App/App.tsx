@@ -1,7 +1,7 @@
 import css from "./App.module.css";
 import CafeInfo from "../CafeInfo/CafeInfo";
 import { useState } from "react";
-import { Votes, VoteType } from "../../types/votes";
+import type { Votes } from "../../types/votes";
 import VoteOptions from "../VoteOptions/VoteOptions";
 import VoteStats from "../VoteStats/VoteStats";
 import Notification from "../Notification/Notification";
@@ -37,7 +37,11 @@ export default function App() {
           description="Please rate our service by selecting one of the options below."
         />
       </div>
-      <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={true} />
+      <VoteOptions
+        onVote={handleVote}
+        onReset={resetVotes}
+        canReset={totalVotes > 0}
+      />
       {totalVotes > 0 ? (
         <VoteStats
           votes={votes}
