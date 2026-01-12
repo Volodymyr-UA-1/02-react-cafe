@@ -1,7 +1,7 @@
 import css from "./App.module.css";
 import CafeInfo from "../CafeInfo/CafeInfo";
 import { useState } from "react";
-import type { Votes } from "../../types/votes";
+import type { Votes, VoteType } from "../../types/votes";
 import VoteOptions from "../VoteOptions/VoteOptions";
 import VoteStats from "../VoteStats/VoteStats";
 import Notification from "../Notification/Notification";
@@ -16,7 +16,7 @@ export default function App() {
   const positiveRate = totalVotes
     ? Math.round((votes.good / totalVotes) * 100)
     : 0;
-  const handleVote = (key: keyof Votes) => {
+  const handleVote = (key: VoteType) => {
     setVotes({
       ...votes,
       [key]: votes[key] + 1,
@@ -32,10 +32,7 @@ export default function App() {
   return (
     <div className={css.app}>
       <div className={css.container}>
-        <CafeInfo
-          title="Sip Happens Café"
-          description="Please rate our service by selecting one of the options below."
-        />
+        <CafeInfo />
       </div>
       <VoteOptions
         onVote={handleVote}
